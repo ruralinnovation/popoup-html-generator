@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/popup-html-generator/static/css/main.5f361e03.chunk.css",
+    "main.js": "/popup-html-generator/static/js/main.18da3d90.chunk.js",
+    "main.js.map": "/popup-html-generator/static/js/main.18da3d90.chunk.js.map",
+    "runtime-main.js": "/popup-html-generator/static/js/runtime-main.c5fd0340.js",
+    "runtime-main.js.map": "/popup-html-generator/static/js/runtime-main.c5fd0340.js.map",
+    "static/css/2.ad8fe80d.chunk.css": "/popup-html-generator/static/css/2.ad8fe80d.chunk.css",
+    "static/js/2.49e36708.chunk.js": "/popup-html-generator/static/js/2.49e36708.chunk.js",
+    "static/js/2.49e36708.chunk.js.map": "/popup-html-generator/static/js/2.49e36708.chunk.js.map",
+    "index.html": "/popup-html-generator/index.html",
+    "precache-manifest.3da5e8cc6db80932ee9a3c8ddd73b0fc.js": "/popup-html-generator/precache-manifest.3da5e8cc6db80932ee9a3c8ddd73b0fc.js",
+    "service-worker.js": "/popup-html-generator/service-worker.js",
+    "static/css/2.ad8fe80d.chunk.css.map": "/popup-html-generator/static/css/2.ad8fe80d.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/popup-html-generator/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.49e36708.chunk.js.LICENSE.txt": "/popup-html-generator/static/js/2.49e36708.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5fd0340.js",
+    "static/css/2.ad8fe80d.chunk.css",
+    "static/js/2.49e36708.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.18da3d90.chunk.js"
+  ]
+}
