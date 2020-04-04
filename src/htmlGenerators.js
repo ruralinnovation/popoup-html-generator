@@ -54,7 +54,7 @@ export const generatePopupHTML = (fields) => {
 }
 
 
-const copyToClipboard = str => {
+export const copyToClipboard = str => {
 	const el = document.createElement('textarea');
 	el.value = str;
 	el.setAttribute('readonly', '');
@@ -63,9 +63,7 @@ const copyToClipboard = str => {
 	document.body.appendChild(el);
 	el.select();
 	document.execCommand('copy');
+	console.log('Copied to clipboard!')
 	document.body.removeChild(el);
 };
 
-
-
-// document.addEventListener('mousemove', () => copyToClipboard(generatePopupHTML(testFields)))
