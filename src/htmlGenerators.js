@@ -1,3 +1,5 @@
+import {FIELD_TYPES} from "./constants";
+
 
 const fieldValueStyle = () => `
         line-height: 1em;
@@ -19,15 +21,21 @@ const barStyle = (fieldName) => `
         transition: width 0.8s;
         background-color: skyblue;
       `
+const scoreBar = fieldName => `
+			<div style="${barContainerStyle()}">
+        <div style="${barStyle(fieldName)}"/>
+      </div>
+`
 
-const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplayName}) => {
+const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
+	if (!fieldName || !fieldDisplayName || !fieldType) return numericFieldsAccumulator
+	
+	const isScore = fieldType === FIELD_TYPES.scoreOutOf100
 	return numericFieldsAccumulator + `
     <li class="CDB-infowindow-listItem" style="min-height: 70px;">
       <h5 class="CDB-infowindow-subtitle">${fieldDisplayName}</h5>
       <h4 class="CDB-infowindow-title" style="${fieldValueStyle()}">{{${fieldName}}}</h4>
-      <div style="${barContainerStyle()}">
-        <div style="${barStyle(fieldName)}"/>
-      </div>
+      ${isScore ? scoreBar(fieldName) : ''}
     </li>
   `
 }
