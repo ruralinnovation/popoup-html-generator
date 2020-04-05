@@ -2,18 +2,26 @@ import React, {useState, useCallback} from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import {generatePopupHTML, copyToClipboard} from "./htmlGenerators";
-import {Input} from "antd";
+import {Input, Select} from "antd";
 import {
   HeartTwoTone
 } from '@ant-design/icons';
 import {GlowButton} from "./GlowButton";
 
+const FIELD_TYPES = {
+  scoreOutOf100: 'Score from 0 to 100',
+  number: 'Number',
+  text: 'Text'
+}
+
 const defaultInputValues = [
   {
+    fieldType: FIELD_TYPES.number,
     fieldName: 'total_staff_100k',
     fieldDisplayName: 'Staff per 100k',
   },
   {
+    fieldType: FIELD_TYPES.scoreOutOf100,
     fieldName: 'prep_score_1',
     fieldDisplayName: 'County Preparedness',
   },
@@ -22,6 +30,15 @@ const defaultInputValues = [
 const FieldInput = ({fieldInputValue, onChange}) => {
   return (
     <div style={{display: 'flex', padding: 24}}>
+      <Select
+        defaultValue={FIELD_TYPES.number}
+        className="field-type"
+        onChange={(fieldType) => onChange({...fieldInputValue, fieldType,})}
+      >
+        <Select.Option value={FIELD_TYPES.scoreOutOf100}>{FIELD_TYPES.scoreOutOf100}</Select.Option>
+        <Select.Option value={FIELD_TYPES.number}>{FIELD_TYPES.number}</Select.Option>
+        <Select.Option value={FIELD_TYPES.text}>{FIELD_TYPES.text}</Select.Option>
+      </Select>
       <Input
         addonBefore="CARTO Field"
         placeholer={"eg state_pop_2018"}
@@ -47,8 +64,7 @@ function App() {
     updatedFieldInputValues[i] = newValue
     setFieldInputValues(updatedFieldInputValues)
   }, [fieldInputValues, setFieldInputValues])
-  console.log(defaultInputValues)
-  
+  console.log(fieldInputValues)
   return (
     <div className="App">
       <div>
