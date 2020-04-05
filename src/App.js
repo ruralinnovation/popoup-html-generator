@@ -11,8 +11,9 @@ import {FIELD_TYPES, DEFAULT_INPUT_VALUES} from "./constants";
 
 const FieldInput = ({fieldInputValue, onChange}) => {
   return (
-    <div style={{display: 'flex', padding: 24}}>
+    <div className="field-input-container" style={{display: 'flex', padding: 24}}>
       <Select
+        style={{flex: 1}}
         defaultValue={fieldInputValue.fieldType}
         className="field-type"
         onChange={(fieldType) => onChange({...fieldInputValue, fieldType})}
@@ -22,12 +23,14 @@ const FieldInput = ({fieldInputValue, onChange}) => {
         <Select.Option value={FIELD_TYPES.text}>{FIELD_TYPES.text}</Select.Option>
       </Select>
       <Input
+        style={{flex: 2}}
         addonBefore="CARTO Field"
         placeholer={"eg state_pop_2018"}
         value={fieldInputValue.fieldName}
         onChange={({target}) => onChange({...fieldInputValue, fieldName: target.value.trim()})}
       />
       <Input
+        style={{flex: 2}}
         addonBefore="Title"
         placeholer={"eg The State Population in 2018"}
         value={fieldInputValue.fieldDisplayName}
@@ -53,24 +56,26 @@ function App() {
   
   console.log(fieldInputValues)
   return (
-    <div className="App">
-      <div>
-        <h2>1. Specify the fields you want in your popup:</h2>
-        {fieldInputValues.map((fieldInputValue, i) => (
-          <FieldInput
-            key={i}
-            onChange={newValue => onChangeInput(newValue, i)}
-            fieldInputValue={fieldInputValue}/>)
-        )}
-        <Button size="large" onClick={addNewInputField}>Add another field</Button>
-      </div>
-      
-      <div>
-        <h2>2. Paste into the CARTO custom HTML editor for a field</h2>
-        <GlowButton onClick={() => copyToClipboard(generatePopupHTML(fieldInputValues))}>
-          Copy popup HTML to clipboard!
-        </GlowButton>
-        <p>Made with <HeartTwoTone style={{color: 'red'}} /> by David</p>
+    <div style={{display: 'flex', justifyContent: 'center'}}>
+      <div className="App">
+        <section className="field-inputs-section">
+          <h2>1. Specify the fields you want in your popup:</h2>
+          {fieldInputValues.map((fieldInputValue, i) => (
+            <FieldInput
+              key={i}
+              onChange={newValue => onChangeInput(newValue, i)}
+              fieldInputValue={fieldInputValue}/>)
+          )}
+          <Button size="large" onClick={addNewInputField}>Add another field</Button>
+        </section>
+        
+        <section>
+          <h2>2. Paste into the CARTO custom HTML editor!</h2>
+          <GlowButton onClick={() => copyToClipboard(generatePopupHTML(fieldInputValues))}>
+            Copy popup HTML to clipboard!
+          </GlowButton>
+          <p>Made with <HeartTwoTone style={{color: 'red'}} /> by David</p>
+        </section>
       </div>
     </div>
   );
