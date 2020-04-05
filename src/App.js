@@ -1,49 +1,17 @@
-import React, {useState, useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import {generatePopupHTML, copyToClipboard} from "./htmlGenerators";
-import {Button, Input, Select} from "antd";
-import {
-  HeartTwoTone
-} from '@ant-design/icons';
+import {copyToClipboard, generatePopupHTML} from "./htmlGenerators";
+import {Button} from "antd";
+import {HeartTwoTone, PlusCircleOutlined} from '@ant-design/icons';
 import {GlowButton} from "./GlowButton";
-import {FIELD_TYPES, DEFAULT_INPUT_VALUES} from "./constants";
-
-const FieldInput = ({fieldInputValue, onChange}) => {
-  return (
-    <div className="field-input-container" style={{display: 'flex', padding: 24}}>
-      <Select
-        style={{flex: 1}}
-        defaultValue={fieldInputValue.fieldType}
-        className="field-type"
-        onChange={(fieldType) => onChange({...fieldInputValue, fieldType})}
-      >
-        <Select.Option value={FIELD_TYPES.scoreOutOf100}>{FIELD_TYPES.scoreOutOf100}</Select.Option>
-        <Select.Option value={FIELD_TYPES.number}>{FIELD_TYPES.number}</Select.Option>
-        <Select.Option value={FIELD_TYPES.text}>{FIELD_TYPES.text}</Select.Option>
-      </Select>
-      <Input
-        style={{flex: 2}}
-        addonBefore="CARTO Field"
-        placeholer={"eg state_pop_2018"}
-        value={fieldInputValue.fieldName}
-        onChange={({target}) => onChange({...fieldInputValue, fieldName: target.value.trim()})}
-      />
-      <Input
-        style={{flex: 2}}
-        addonBefore="Title"
-        placeholer={"eg The State Population in 2018"}
-        value={fieldInputValue.fieldDisplayName}
-        onChange={({target}) => onChange({...fieldInputValue, fieldDisplayName: target.value.trim()})}
-      />
-    </div>
-  )
-}
+import {DEFAULT_INPUT_VALUES} from "./constants";
+import {FieldInputRow} from "./FieldInputRow";
 
 
 function App() {
   
-  const [fieldInputValues, setFieldInputValues] = useState(DEFAULT_INPUT_VALUES)
+  const [fieldInputValues, setFieldInputValues] = useState(DEFAULT_INPUT_VALUES.slice(1, 2))
   const onChangeInput = useCallback((newValue, i) => {
     const updatedFieldInputValues = [...fieldInputValues]
     updatedFieldInputValues[i] = newValue
@@ -61,12 +29,12 @@ function App() {
         <section className="field-inputs-section">
           <h2>1. Specify the fields you want in your popup:</h2>
           {fieldInputValues.map((fieldInputValue, i) => (
-            <FieldInput
+            <FieldInputRow
               key={i}
               onChange={newValue => onChangeInput(newValue, i)}
               fieldInputValue={fieldInputValue}/>)
           )}
-          <Button size="large" onClick={addNewInputField}>Add another field</Button>
+          <Button size="large" onClick={addNewInputField}>Add another field <PlusCircleOutlined style={{color: 'skyblue'}}/></Button>
         </section>
         
         <section>
