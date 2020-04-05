@@ -22,7 +22,6 @@ function App() {
     onChangeInput(DEFAULT_INPUT_VALUES[0], fieldInputValues.length)
   }, [fieldInputValues])
   
-  console.log(fieldInputValues)
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
       <div className="App">
@@ -46,7 +45,7 @@ function App() {
         
         <section>
           <h2>3. Paste into the CARTO custom HTML editor!</h2>
-          <p>Photo instructions below, just in case: <SmileOutlined rotate={180}/></p>
+          <p>Photo instructions below, you've got to do a few special things. <SmileOutlined rotate={180}/></p>
           <img src="https://user-images.githubusercontent.com/6570507/78468037-3c929e80-76c8-11ea-8521-266ea1cbf47a.png" alt="custom popup instructions" style={{maxWidth: '100%'}}/>
           <img src="https://user-images.githubusercontent.com/6570507/78468098-f853ce00-76c8-11ea-847e-77f23fc55cab.png" alt="paste into editor" style={{maxWidth: '100%'}}/>
         </section>

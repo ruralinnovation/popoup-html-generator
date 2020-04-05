@@ -1,9 +1,9 @@
 import {FIELD_TYPES} from "./constants";
 
 
-const fieldValueStyle = () => `
+const fieldValueStyle = (isText) => `
         line-height: 1em;
-        font-size: 3em;
+        font-size: ${isText ? '1.5em' : '3em'};
       `
 
 const barContainerStyle = () => `
@@ -31,10 +31,11 @@ const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplay
 	if (!fieldName || !fieldDisplayName || !fieldType) return numericFieldsAccumulator
 	
 	const isScore = fieldType === FIELD_TYPES.scoreOutOf100
+	const isText = fieldType === FIELD_TYPES.text
 	return numericFieldsAccumulator + `
     <li class="CDB-infowindow-listItem" style="min-height: 70px;">
       <h5 class="CDB-infowindow-subtitle">${fieldDisplayName}</h5>
-      <h4 class="CDB-infowindow-title" style="${fieldValueStyle()}">{{${fieldName}}}</h4>
+      <h4 class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${fieldName}}}</h4>
       ${isScore ? scoreBar(fieldName) : ''}
     </li>
   `
@@ -71,7 +72,6 @@ export const copyToClipboard = str => {
 	document.body.appendChild(el);
 	el.select();
 	document.execCommand('copy');
-	console.log('Copied to clipboard!')
 	document.body.removeChild(el);
 };
 
