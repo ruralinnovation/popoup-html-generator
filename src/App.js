@@ -3,7 +3,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 import {copyToClipboard, generatePopupHTML} from "./htmlGenerators";
 import {Button} from "antd";
-import {HeartTwoTone, PlusCircleOutlined} from '@ant-design/icons';
+import {HeartTwoTone, PlusCircleOutlined, SmileOutlined} from '@ant-design/icons';
 import {GlowButton} from "./GlowButton";
 import {DEFAULT_INPUT_VALUES} from "./constants";
 import {FieldInputRow} from "./FieldInputRow";
@@ -38,12 +38,20 @@ function App() {
         </section>
         
         <section>
-          <h2>2. Paste into the CARTO custom HTML editor!</h2>
+          <h2>2.</h2>
           <GlowButton onClick={() => copyToClipboard(generatePopupHTML(fieldInputValues))}>
             Copy popup HTML to clipboard!
           </GlowButton>
-          <p>Made with <HeartTwoTone style={{color: 'red'}} /> by David</p>
         </section>
+        
+        <section>
+          <h2>3. Paste into the CARTO custom HTML editor!</h2>
+          <p>Photo instructions below, just in case: <SmileOutlined rotate={180}/></p>
+          <img src="https://user-images.githubusercontent.com/6570507/78468037-3c929e80-76c8-11ea-8521-266ea1cbf47a.png" alt="custom popup instructions" style={{maxWidth: '100%'}}/>
+          <img src="https://user-images.githubusercontent.com/6570507/78468098-f853ce00-76c8-11ea-847e-77f23fc55cab.png" alt="paste into editor" style={{maxWidth: '100%'}}/>
+        </section>
+        
+        <p>Made with <HeartTwoTone style={{color: 'red'}} /> by David</p>
       </div>
     </div>
   );

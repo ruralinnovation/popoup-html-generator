@@ -19,6 +19,10 @@ section {
   margin-bottom: 48px;
 }
 
+h2 {
+  font-size: 3em;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
