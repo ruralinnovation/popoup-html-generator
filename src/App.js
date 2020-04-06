@@ -7,9 +7,15 @@ import {HeartTwoTone, PlusCircleOutlined, SmileOutlined} from '@ant-design/icons
 import {GlowButton} from "./GlowButton";
 import {DEFAULT_INPUT_VALUES} from "./constants";
 import {FieldInputRow} from "./FieldInputRow";
+import {DarkStyleSwitch} from "./DarkStyleSwitch";
 
 
 function App() {
+  const [isDarkStyle, setIsDarkStyle] = useState(true)
+  const onToggle = useCallback(
+    () => setIsDarkStyle(!isDarkStyle),
+    [isDarkStyle, setIsDarkStyle]
+  )
   
   const [fieldInputValues, setFieldInputValues] = useState(DEFAULT_INPUT_VALUES.slice(1, 2))
   const onChangeInput = useCallback((newValue, i) => {
@@ -27,6 +33,7 @@ function App() {
       <div className="App">
         <section className="field-inputs-section">
           <h2>1. Specify the fields you want in your popup:</h2>
+          <DarkStyleSwitch isDarkStyle={isDarkStyle} onToggle={onToggle}/>
           {fieldInputValues.map((fieldInputValue, i) => (
             <FieldInputRow
               key={i}
@@ -38,7 +45,7 @@ function App() {
         
         <section>
           <h2>2.</h2>
-          <GlowButton onClick={() => copyToClipboard(generatePopupHTML(fieldInputValues))}>
+          <GlowButton onClick={() => copyToClipboard(generatePopupHTML(fieldInputValues, isDarkStyle))}>
             Copy popup HTML to clipboard!
           </GlowButton>
         </section>

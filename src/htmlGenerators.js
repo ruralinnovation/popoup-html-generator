@@ -41,10 +41,10 @@ const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplay
   `
 }
 
-export const generatePopupHTML = (fields) => {
+export const generatePopupHTML = (fields, isDarkStyle) => {
 	const numericFields = fields.reduce(generateNumericField, '')
 	return `
-    <div class="CDB-infowindow CDB-infowindow--light js-infowindow">
+    <div class="CDB-infowindow CDB-infowindow--${isDarkStyle ? 'dark' : 'light'} js-infowindow">
       <div class="CDB-infowindow-close js-close"></div>
       <div class="CDB-infowindow-container">
         <div class="CDB-infowindow-bg">
