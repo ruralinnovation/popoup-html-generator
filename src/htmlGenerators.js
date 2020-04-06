@@ -1,10 +1,20 @@
 import {FIELD_TYPES} from "./constants";
 
 
-const fieldValueStyle = (isText) => `
-        line-height: 1em;
-        font-size: ${isText ? '1.5em' : '3em'};
-      `
+const fieldDisplayNameStyle = isText => isText ? '' : `
+	position: absolute;
+	left: 0px;
+	bottom: 8px;
+	font-size: 16px;
+`
+
+const fieldValueStyle = isText => isText ? 'font-size: 1.5em' : `
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	line-height: 1em;
+	font-size: 3em;
+`
 
 const barContainerStyle = () => `
         width: 100%;
@@ -21,6 +31,16 @@ const barStyle = (fieldName) => `
         transition: width 0.8s;
         background-color: skyblue;
       `
+
+const fieldWrapperStyle = isText => isText ? '' : `
+	position: relative;
+	padding-bottom: 4px;
+	height: 3em;
+`
+
+
+
+
 const scoreBar = fieldName => `
 			<div style="${barContainerStyle()}">
         <div style="${barStyle(fieldName)}"/>
@@ -34,8 +54,10 @@ const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplay
 	const isText = fieldType === FIELD_TYPES.text
 	return numericFieldsAccumulator + `
     <li class="CDB-infowindow-listItem" style="min-height: 70px;">
-      <h5 class="CDB-infowindow-subtitle">${fieldDisplayName}</h5>
-      <h4 class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${fieldName}}}</h4>
+    	<div style="${fieldWrapperStyle(isText)}">
+				<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText)}">${fieldDisplayName}</div>
+				<div class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${fieldName}}}</div>
+      </div>
       ${isScore ? scoreBar(fieldName) : ''}
     </li>
   `

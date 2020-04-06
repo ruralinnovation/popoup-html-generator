@@ -17,7 +17,7 @@ function App() {
     [isDarkStyle, setIsDarkStyle]
   )
   
-  const [fieldInputValues, setFieldInputValues] = useState(DEFAULT_INPUT_VALUES.slice(1, 2))
+  const [fieldInputValues, setFieldInputValues] = useState(DEFAULT_INPUT_VALUES)
   const onChangeInput = useCallback((newValue, i) => {
     const updatedFieldInputValues = [...fieldInputValues]
     updatedFieldInputValues[i] = newValue
