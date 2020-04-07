@@ -79,6 +79,13 @@ const scoreGradient = (gradientFieldName) => {
 	`
 }
 
+// TODO: actually let user set the eybrow label
+const gradientEyebrowLabel = (eyebrowLabel = 'Preparedness Level:') => `
+	<div class="CDB-infowindow-subtitle" style="position: absolute;left: 0px; top: 0;margin-top: -3em;font-size: 12px;text-transform: capitalize;">
+		${eyebrowLabel}
+	</div>
+`
+
 
 const fieldSection = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
 	if (!fieldName || !fieldType) return numericFieldsAccumulator
@@ -90,6 +97,7 @@ const fieldSection = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fi
     <li class="CDB-infowindow-listItem" style="${listItemStyle(isGradient)}">
     	<div style="min-height: 42px;">
 				<div style="${fieldWrapperStyle(isText)}">
+					${isGradient ? gradientEyebrowLabel() : ''}
 					<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isGradient)}">${isGradient ? `{{${fieldName}}}` : fieldDisplayName}</div>
 					<div class="CDB-infowindow-title" style="${fieldValueStyle(isText, isGradient)}">{{${isGradient ? fieldDisplayName : fieldName}}}</div>
 				</div>
