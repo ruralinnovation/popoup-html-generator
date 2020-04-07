@@ -41,6 +41,10 @@ const fieldWrapperStyle = (isText, isGradient) => isText ? '' : `
 `
 
 
+const listItemStyle = (isGradient) => isGradient ? `
+	min-height: 3em;
+	margin-top: 3em;
+` : ''
 
 
 const scoreBar = fieldName => `
@@ -49,7 +53,7 @@ const scoreBar = fieldName => `
       </div>
 `
 
-const generateGradientField = (gradientFieldName) => {
+const scoreGradient = (gradientFieldName) => {
 	return `
 		<div class='bar-container' style="
                                   height: 12px;
@@ -75,14 +79,8 @@ const generateGradientField = (gradientFieldName) => {
 	`
 }
 
-const listItemStyle = (isGradient) => isGradient ? `
-	min-height: 3em;
-	margin-top: 3em;
-` : ''
 
-
-
-const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
+const fieldSection = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
 	if (!fieldName || !fieldType) return numericFieldsAccumulator
 	
 	const isScore = fieldType === FIELD_TYPES.scoreOutOf100
@@ -95,19 +93,32 @@ const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplay
 					<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isGradient)}">${isGradient ? `{{${fieldName}}}` : fieldDisplayName}</div>
 					<div class="CDB-infowindow-title" style="${fieldValueStyle(isText, isGradient)}">{{${isGradient ? fieldDisplayName : fieldName}}}</div>
 				</div>
-				${isScore ? scoreBar(fieldName) : (isGradient ? generateGradientField(fieldDisplayName) : '')}
+				${isScore ? scoreBar(fieldName) : (isGradient ? scoreGradient(fieldDisplayName) : '')}
       </div>
     </li>
   `
 }
 
+const locationHeader = () => `
+	<div class="CDB-infowindow-header CDB-infowindow-headerBg CDB-infowindow-headerBg--light js-header" style="background: #191e21; padding-bottom: 16px;">
+      <ul class="CDB-infowindow-list">
+        <li class="CDB-infowindow-listItem">
+          <h4 class="CDB-infowindow-title" style="font-size: 24px">
+            {{name}}, {{st_stusps}}
+          </h4>
+        </li>
+      </ul>
+    </div>
+`
+
 export const generatePopupHTML = (fields, isDarkStyle) => {
-	const numericFields = fields.reduce(generateNumericField, '')
+	const numericFields = fields.reduce(fieldSection, '')
 	return `
     <div class="CDB-infowindow CDB-infowindow--${isDarkStyle ? 'dark' : 'light'} js-infowindow">
       <div class="CDB-infowindow-close js-close"></div>
       <div class="CDB-infowindow-container">
         <div class="CDB-infowindow-bg">
+        ${locationHeader()}
           <div class="CDB-infowindow-inner js-inner">
             <ul class="CDB-infowindow-list js-content">
                 ${numericFields}
