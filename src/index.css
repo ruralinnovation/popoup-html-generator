@@ -2,6 +2,8 @@
   --dark-color: #222;
   --light-color: #eee;
   --sub-section-padding: 24px;
+
+  --nav-bar-collapse-speed: 400ms;
 }
 
 body {

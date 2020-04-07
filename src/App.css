@@ -25,6 +25,10 @@ h2 {
   color: var(--dark-color);
 }
 
+section.splash-image {
+  margin-top: 40px;
+}
+
 .field-input-container, p, h2 {
   padding: var(--sub-section-padding);
 }
@@ -58,6 +62,7 @@ h2 {
 .hippo-bar {
   display: flex;
   justify-items: baseline;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   left: 0;
@@ -68,12 +73,17 @@ h2 {
   padding: 8px;
   padding-left: 24px;
   z-index: 10000;
+
 }
 
 .hippo-emoji {
   font-size: 24px;
+  transform: scale(-1, 1);
+  position: fixed;
+  transition: left 1s cubic-bezier(.72,.01,.55,1), top var(--nav-bar-collapse-speed);
 }
-.hippo-bar .name {
+.hippo-bar .hippo-popup-mus {
   font-style: italic;
   font-weight: bolder;
+  transition: font-size var(--nav-bar-collapse-speed);
 }
