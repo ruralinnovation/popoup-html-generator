@@ -18,9 +18,9 @@ const fieldValueStyle = isText => isText ? 'font-size: 1.5em' : `
 
 const barContainerStyle = () => `
         width: 100%;
-        height: 12px;
+        height: 8px;
         border-radius: 4px;
-        background-color: rgba(10,10,10,0.1);
+        background-color: rgba(10,10,10,0.6);
       `
 
 const barStyle = (fieldName) => `
@@ -47,18 +47,46 @@ const scoreBar = fieldName => `
       </div>
 `
 
+const generateGradientField = (gradientFieldName) => {
+	return `
+		<div class='bar-container' style="
+                                  height: 12px;
+                                  border-radius: 4px;
+                                  position: relative;
+                                  background: linear-gradient(90deg , #cf597e , #e88471 , #eeb479 , #e9e29c , #9ccb86 , #39b185 , #009392);
+                                  ">
+    	<div style="-webkit-transform: translateX(-12px)">
+  			<div class='bar' style="
+					border-radius: 0px;
+					height: 0px;
+					width: 0px;
+					position: absolute;
+					left: {{${gradientFieldName}}}%;
+					top: -8px;
+					border-left: 12px solid transparent;
+					border-right: 12px solid transparent;
+					border-top: 16px solid white;
+					"/>
+    	</div>
+	</div>
+	
+	`
+}
+
+
 const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
-	if (!fieldName || !fieldDisplayName || !fieldType) return numericFieldsAccumulator
+	if (!fieldName || !fieldType) return numericFieldsAccumulator
 	
 	const isScore = fieldType === FIELD_TYPES.scoreOutOf100
 	const isText = fieldType === FIELD_TYPES.text
+	const isGradient = fieldType === FIELD_TYPES.gradientOutOf100
 	return numericFieldsAccumulator + `
     <li class="CDB-infowindow-listItem" style="min-height: 70px;">
     	<div style="${fieldWrapperStyle(isText)}">
-				<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText)}">${fieldDisplayName}</div>
-				<div class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${fieldName}}}</div>
+				<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isGradient)}">${isGradient ? `{{${fieldName}}}` : fieldDisplayName}</div>
+				<div class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${isGradient ? fieldDisplayName : fieldName}}}</div>
       </div>
-      ${isScore ? scoreBar(fieldName) : ''}
+      ${isScore ? scoreBar(fieldName) : (isGradient ? generateGradientField(fieldDisplayName) : '')}
     </li>
   `
 }

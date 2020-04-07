@@ -1,14 +1,15 @@
 export const FIELD_TYPES = {
 	scoreOutOf100: 'Score (0 to 100)',
+	gradientOutOf100: 'Gradient(0 to 100)',
 	number: 'Number',
 	text: 'Text'
 }
 
 export const DEFAULT_INPUT_VALUES = [
 	{
-		fieldType: FIELD_TYPES.text,
+		fieldType: FIELD_TYPES.gradientOutOf100,
 		fieldName: 'prep_level',
-		fieldDisplayName: 'Preparedness Level',
+		fieldDisplayName: 'prep_score',
 	},
 	
 	{

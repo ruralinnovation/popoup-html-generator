@@ -4,12 +4,13 @@ import {FIELD_TYPES} from "./constants";
 
 
 export const FieldInputRow = ({fieldInputValue, onChange}) => {
+	const isGradient = fieldInputValue.fieldType === FIELD_TYPES.gradientOutOf100
 	return (
 		<div className="field-input-container" style={{display: 'flex', padding: 24}}>
 			<Input
 				style={{flex: 2}}
-				addonBefore="Title"
-				placeholer={"eg The State Population in 2018"}
+				addonBefore={isGradient ? 'Gradient score' : 'Title'}
+				placeholer={isGradient ? "eg The State Population in 2018" : "eg prep_score_1"}
 				value={fieldInputValue.fieldDisplayName}
 				onChange={({target}) => onChange({...fieldInputValue, fieldDisplayName: target.value})}
 			/>
