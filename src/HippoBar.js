@@ -1,13 +1,16 @@
 import React from 'react';
+import {useCurrentWidth} from "./useCurrentWidth";
 
 const BAR_SIDE_MARGIN = 36
 
 export const HippoBar = ({pageSectionIndex, pageSectionCount}) => {
+	const screenWidth = useCurrentWidth()
+	
 	const isFirstSection = pageSectionIndex === 0
 	const isLastSection = pageSectionIndex === pageSectionCount - 1
 	
 	const pageProgressPercentage = pageSectionIndex / (pageSectionCount - 1)
-	const hippoLeftPosition = BAR_SIDE_MARGIN + pageProgressPercentage * (window.innerWidth - 2 * BAR_SIDE_MARGIN)
+	const hippoLeftPosition = BAR_SIDE_MARGIN + pageProgressPercentage * (screenWidth - 2 * BAR_SIDE_MARGIN)
 	const hippoTopPosition = isFirstSection ? '2em' : 8
 	
 	return (
@@ -26,7 +29,7 @@ export const HippoBar = ({pageSectionIndex, pageSectionCount}) => {
 			>
 				🦛
 			</span>
-			{isLastSection && <div>
+			{isLastSection && <div style={{marginRight: 8}}>
 				🎉
 			</div>}
 		</div>
