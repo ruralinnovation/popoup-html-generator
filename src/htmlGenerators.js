@@ -75,6 +75,12 @@ const generateGradientField = (gradientFieldName) => {
 	`
 }
 
+const listItemStyle = (isGradient) => isGradient ? `
+	min-height: 3em;
+	margin-top: 3em;
+` : ''
+
+
 
 const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
 	if (!fieldName || !fieldType) return numericFieldsAccumulator
@@ -83,8 +89,8 @@ const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplay
 	const isText = fieldType === FIELD_TYPES.text
 	const isGradient = fieldType === FIELD_TYPES.gradientOutOf100
 	return numericFieldsAccumulator + `
-    <li class="CDB-infowindow-listItem" style="min-height: 42px;">
-    <div style="min-height: 42px;">
+    <li class="CDB-infowindow-listItem" style="${listItemStyle(isGradient)}">
+    	<div style="min-height: 42px;">
 				<div style="${fieldWrapperStyle(isText)}">
 					<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isGradient)}">${isGradient ? `{{${fieldName}}}` : fieldDisplayName}</div>
 					<div class="CDB-infowindow-title" style="${fieldValueStyle(isText, isGradient)}">{{${isGradient ? fieldDisplayName : fieldName}}}</div>
