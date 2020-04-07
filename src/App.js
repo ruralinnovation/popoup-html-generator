@@ -8,6 +8,7 @@ import {GlowButton} from "./GlowButton";
 import {DEFAULT_INPUT_VALUES} from "./constants";
 import {FieldInputRow} from "./FieldInputRow";
 import {DarkStyleSwitch} from "./DarkStyleSwitch";
+import {HippoBar} from "./HippoBar";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
       <div className="App">
+        <HippoBar/>
         <section className="field-inputs-section">
           <h2>1. Specify the fields you want in your popup:</h2>
           <DarkStyleSwitch isDarkStyle={isDarkStyle} onToggle={onToggle}/>

@@ -1,3 +1,9 @@
+:root {
+  --dark-color: #222;
+  --light-color: #eee;
+  --sub-section-padding: 24px;
+}
+
 body {
   margin: 0;
   background-color: var(--light-color);
