@@ -1,19 +1,20 @@
 import {FIELD_TYPES} from "./constants";
 
 
-const fieldDisplayNameStyle = isText => isText ? '' : `
+const fieldDisplayNameStyle = (isText, isGradient) => isText ? '' : `
 	position: absolute;
 	left: 0px;
 	bottom: 8px;
-	font-size: 16px;
+	font-size: ${isGradient ? '16px' : '12px'};
+	${isGradient ? 'font-style: bolder;' : ''}
 `
 
-const fieldValueStyle = isText => isText ? 'font-size: 1.5em' : `
+const fieldValueStyle = (isText, isGradient) => isText ? 'font-size: 1.5em' : `
 	position: absolute;
 	right: 8px;
 	bottom: 8px;
 	line-height: 1em;
-	font-size: 3em;
+	font-size: ${isGradient ? '3em' : '2em'};
 `
 
 const barContainerStyle = () => `
@@ -32,10 +33,11 @@ const barStyle = (fieldName) => `
         background-color: skyblue;
       `
 
-const fieldWrapperStyle = isText => isText ? '' : `
+const fieldWrapperStyle = (isText, isGradient) => isText ? '' : `
 	position: relative;
 	padding-bottom: 4px;
-	height: 3em;
+	padding-top: 4px;
+	${isGradient ? 'height: 32px;' : ''}
 `
 
 
@@ -81,12 +83,14 @@ const generateNumericField = (numericFieldsAccumulator, {fieldName, fieldDisplay
 	const isText = fieldType === FIELD_TYPES.text
 	const isGradient = fieldType === FIELD_TYPES.gradientOutOf100
 	return numericFieldsAccumulator + `
-    <li class="CDB-infowindow-listItem" style="min-height: 70px;">
-    	<div style="${fieldWrapperStyle(isText)}">
-				<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isGradient)}">${isGradient ? `{{${fieldName}}}` : fieldDisplayName}</div>
-				<div class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${isGradient ? fieldDisplayName : fieldName}}}</div>
+    <li class="CDB-infowindow-listItem" style="min-height: 42px;">
+    <div style="min-height: 42px;">
+				<div style="${fieldWrapperStyle(isText)}">
+					<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isGradient)}">${isGradient ? `{{${fieldName}}}` : fieldDisplayName}</div>
+					<div class="CDB-infowindow-title" style="${fieldValueStyle(isText, isGradient)}">{{${isGradient ? fieldDisplayName : fieldName}}}</div>
+				</div>
+				${isScore ? scoreBar(fieldName) : (isGradient ? generateGradientField(fieldDisplayName) : '')}
       </div>
-      ${isScore ? scoreBar(fieldName) : (isGradient ? generateGradientField(fieldDisplayName) : '')}
     </li>
   `
 }

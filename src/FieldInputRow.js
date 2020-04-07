@@ -6,7 +6,7 @@ import {FIELD_TYPES} from "./constants";
 export const FieldInputRow = ({fieldInputValue, onChange}) => {
 	const isGradient = fieldInputValue.fieldType === FIELD_TYPES.gradientOutOf100
 	return (
-		<div className="field-input-container" style={{display: 'flex', padding: 24}}>
+		<div className="field-input-container" style={{display: 'flex'}}>
 			<Input
 				style={{flex: 2}}
 				addonBefore={isGradient ? 'Gradient score' : 'Title'}
@@ -30,6 +30,7 @@ export const FieldInputRow = ({fieldInputValue, onChange}) => {
 				onChange={(fieldType) => onChange({...fieldInputValue, fieldType})}
 			>
 				<Select.Option value={FIELD_TYPES.scoreOutOf100}>{FIELD_TYPES.scoreOutOf100}</Select.Option>
+				<Select.Option value={FIELD_TYPES.gradientOutOf100}>{FIELD_TYPES.gradientOutOf100}</Select.Option>
 				<Select.Option value={FIELD_TYPES.number}>{FIELD_TYPES.number}</Select.Option>
 				<Select.Option value={FIELD_TYPES.text}>{FIELD_TYPES.text}</Select.Option>
 			</Select>
