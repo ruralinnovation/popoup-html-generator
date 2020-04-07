@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/popoup-html-generator/static/css/main.2c13d251.chunk.css",
+    "main.css": "/popoup-html-generator/static/css/main.b4df801a.chunk.css",
     "main.js": "/popoup-html-generator/static/js/main.d14e94da.chunk.js",
     "main.js.map": "/popoup-html-generator/static/js/main.d14e94da.chunk.js.map",
     "runtime-main.js": "/popoup-html-generator/static/js/runtime-main.f98db673.js",
@@ -9,17 +9,17 @@
     "static/js/2.c2238df0.chunk.js": "/popoup-html-generator/static/js/2.c2238df0.chunk.js",
     "static/js/2.c2238df0.chunk.js.map": "/popoup-html-generator/static/js/2.c2238df0.chunk.js.map",
     "index.html": "/popoup-html-generator/index.html",
-    "precache-manifest.b0da0cea9fd469d624c7e8e648f0efcc.js": "/popoup-html-generator/precache-manifest.b0da0cea9fd469d624c7e8e648f0efcc.js",
+    "precache-manifest.83d30d0dd65e141c43ed9db7570e44d7.js": "/popoup-html-generator/precache-manifest.83d30d0dd65e141c43ed9db7570e44d7.js",
     "service-worker.js": "/popoup-html-generator/service-worker.js",
     "static/css/2.ad8fe80d.chunk.css.map": "/popoup-html-generator/static/css/2.ad8fe80d.chunk.css.map",
-    "static/css/main.2c13d251.chunk.css.map": "/popoup-html-generator/static/css/main.2c13d251.chunk.css.map",
+    "static/css/main.b4df801a.chunk.css.map": "/popoup-html-generator/static/css/main.b4df801a.chunk.css.map",
     "static/js/2.c2238df0.chunk.js.LICENSE.txt": "/popoup-html-generator/static/js/2.c2238df0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f98db673.js",
     "static/css/2.ad8fe80d.chunk.css",
     "static/js/2.c2238df0.chunk.js",
-    "static/css/main.2c13d251.chunk.css",
+    "static/css/main.b4df801a.chunk.css",
     "static/js/main.d14e94da.chunk.js"
   ]
 }
