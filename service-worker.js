@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/popoup-html-generator/precache-manifest.4bef6cecd9f7dca2679545c02ccdceb9.js"
+  "/popoup-html-generator/precache-manifest.0ff688f8d983339e9ef2bfef0b9047df.js"
 );
 
 self.addEventListener('message', (event) => {
