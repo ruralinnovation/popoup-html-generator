@@ -119,6 +119,25 @@ const locationHeader = () => `
     </div>
 `
 
+const triangleMarker = (isDarkStyle) => `
+	<div style="
+			position: relative;
+			bottom: 24px;
+			left: 24px;
+	">
+    <div style="
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 0;
+			border-top: 16px solid ${isDarkStyle ? '#2e3c42' : 'white'};
+			border-right: 24px solid transparent;
+			z-index: 3;
+				"/>
+    </div>
+`
+
 export const generatePopupHTML = (fields, isDarkStyle) => {
 	const numericFields = fields.reduce(fieldSection, '')
 	return `
@@ -133,9 +152,7 @@ export const generatePopupHTML = (fields, isDarkStyle) => {
             </ul>
           </div>
         </div>
-        <div class="CDB-hook">
-          <div class="CDB-hook-inner"></div>
-        </div>
+        ${triangleMarker(isDarkStyle)}
       </div>
     </div>
   `
