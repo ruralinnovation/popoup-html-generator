@@ -87,13 +87,13 @@ const gradientEyebrowLabel = (eyebrowLabel = 'Preparedness Level:') => `
 `
 
 
-const fieldSection = (numericFieldsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
-	if (!fieldName || !fieldType) return numericFieldsAccumulator
+const fieldSection = (fieldSectionsAccumulator, {fieldName, fieldDisplayName, fieldType}) => {
+	if (!fieldName || !fieldType) return fieldSectionsAccumulator
 	
 	const isScore = fieldType === FIELD_TYPES.scoreOutOf100
 	const isText = fieldType === FIELD_TYPES.text
 	const isGradient = fieldType === FIELD_TYPES.gradientOutOf100
-	return numericFieldsAccumulator + `
+	return fieldSectionsAccumulator + `
     <li class="CDB-infowindow-listItem" style="${listItemStyle(isGradient)}">
     	<div style="min-height: 42px;">
 				<div style="${fieldWrapperStyle(isText)}">
@@ -139,7 +139,7 @@ const triangleMarker = (isDarkStyle) => `
 `
 
 export const generatePopupHTML = (fields, isDarkStyle) => {
-	const numericFields = fields.reduce(fieldSection, '')
+	const fieldSections = fields.reduce(fieldSection, '')
 	return `
     <div class="CDB-infowindow CDB-infowindow--${isDarkStyle ? 'dark' : 'light'} js-infowindow">
       <div class="CDB-infowindow-close js-close"></div>
@@ -148,7 +148,7 @@ export const generatePopupHTML = (fields, isDarkStyle) => {
         ${locationHeader()}
           <div class="CDB-infowindow-inner js-inner">
             <ul class="CDB-infowindow-list js-content">
-                ${numericFields}
+                ${fieldSections}
             </ul>
           </div>
         </div>

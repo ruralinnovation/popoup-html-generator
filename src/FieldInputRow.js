@@ -1,9 +1,9 @@
 import React from "react";
-import {Input, Select} from "antd";
+import {Input, Select, Button} from "antd";
 import {FIELD_TYPES} from "./constants";
 
 
-export const FieldInputRow = ({fieldInputValue, onChange}) => {
+export const FieldInputRow = ({index, fieldInputValue, onChange, onDeleteField}) => {
 	const isGradient = fieldInputValue.fieldType === FIELD_TYPES.gradientOutOf100
 	return (
 		<div className="field-input-container" style={{display: 'flex'}}>
@@ -34,6 +34,7 @@ export const FieldInputRow = ({fieldInputValue, onChange}) => {
 				<Select.Option value={FIELD_TYPES.number}>{FIELD_TYPES.number}</Select.Option>
 				<Select.Option value={FIELD_TYPES.text}>{FIELD_TYPES.text}</Select.Option>
 			</Select>
+			<Button className="delete-button" onClick={() => onDeleteField(index)} danger>X</Button>
 		</div>
 	)
 }

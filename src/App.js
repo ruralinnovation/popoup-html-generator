@@ -64,6 +64,10 @@ function App() {
     onChangeInput(DEFAULT_INPUT_VALUES[0], fieldInputValues.length)
   }, [fieldInputValues])
   
+  const onDeleteField = useCallback((index) => {
+    setFieldInputValues(fieldInputValues.filter((_, i) => i !== index))
+  }, [fieldInputValues])
+  
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
       <div className="App">
@@ -84,7 +88,9 @@ function App() {
               {fieldInputValues.map((fieldInputValue, i) => (
                 <FieldInputRow
                   key={i}
+                  index={i}
                   onChange={newValue => onChangeInput(newValue, i)}
+                  onDeleteField={onDeleteField}
                   fieldInputValue={fieldInputValue}/>)
               )}
               <Button size="large" onClick={addNewInputField}>Add another field <PlusCircleOutlined style={{color: 'skyblue'}}/></Button>

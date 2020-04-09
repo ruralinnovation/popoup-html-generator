@@ -33,6 +33,15 @@ section.splash-image {
   padding: var(--sub-section-padding);
 }
 
+.field-input-container .delete-button {
+  opacity: 0;
+  transition: opacity var(--nav-bar-collapse-speed)
+}
+
+.field-input-container:hover .delete-button {
+  opacity: 1;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
