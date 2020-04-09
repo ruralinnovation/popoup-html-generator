@@ -7,7 +7,7 @@ import {HeartTwoTone, PlusCircleOutlined, SmileOutlined} from '@ant-design/icons
 import { Scrollama, Step } from 'react-scrollama';
 
 import {GlowButton} from "./GlowButton";
-import {DEFAULT_INPUT_VALUES} from "./constants";
+import {BLANK_INPUT_FIELD, DEFAULT_INPUT_VALUES} from "./constants";
 import {FieldInputRow} from "./FieldInputRow";
 import {DarkStyleSwitch} from "./DarkStyleSwitch";
 import {HippoBar} from "./HippoBar";
@@ -61,7 +61,7 @@ function App() {
   }, [fieldInputValues, setFieldInputValues])
   
   const addNewInputField = useCallback(() => {
-    onChangeInput(DEFAULT_INPUT_VALUES[0], fieldInputValues.length)
+    onChangeInput(BLANK_INPUT_FIELD, fieldInputValues.length)
   }, [fieldInputValues])
   
   const onDeleteField = useCallback((index) => {

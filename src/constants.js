@@ -5,6 +5,12 @@ export const FIELD_TYPES = {
 	text: 'Text'
 }
 
+export const BLANK_INPUT_FIELD = {
+	fieldType: FIELD_TYPES.number,
+	fieldName: '',
+	fieldDisplayName: '',
+}
+
 export const DEFAULT_INPUT_VALUES = [
 	{
 		fieldType: FIELD_TYPES.gradientOutOf100,
