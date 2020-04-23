@@ -1,8 +1,9 @@
 export const FIELD_TYPES = {
-	scoreOutOf100: 'Score (0 to 100)',
-	gradientOutOf100: 'Gradient(0 to 100)',
 	number: 'Number',
-	text: 'Text'
+	text: 'Text',
+	zillowLink: 'Zillow Foreclosures Link',
+	wikipediaLink: 'Wikipedia Link',
+	subSectionHeader: 'Sub Section Header'
 }
 
 export const BLANK_INPUT_FIELD = {
@@ -21,26 +22,52 @@ export const DEFAULT_INPUT_VALUES = [
 	// Contractor Link (if applicable)
 	
 	// COUNTY LEVEL INDICATORS
-	
+
 // 	Tract Level Indicators
 //
 // 	Area of Concentrated Poverty
 // 	YES/NO' whether designated as an Area of Concentrated Poverty
 
+
 // 	Lower Mississippi Delta or Mid-Appalachia region?
 // 		Fannie Mae Region Name
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'Lower Missippi Delta or Mid Appalachia',
+		fieldName: 'fm_region_flag',
+	},
 
 // 	Rural
 // 	YES/NO' for Rural
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'Fannie Mae rural',
+		fieldName: 'rural',
+	},
 
 // 	FHFA Low Income Area
 // 	YES/NO' for Low Income Area
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'FHFA low income area',
+		fieldName: 'low_income_area',
+	},
 
 // 	FHFA Minority Area
 // 	YES/NO' for Minority Area
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'FHFA minority area',
+		fieldName: 'minority_area',
+	},
 
 // 	CRA Eligible
 // 	YES/NO' for CRA market (generally assessed based on state or MSA)
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'cra eligible',
+		fieldName: 'cra_eligibility',
+	},
 
 // 	High Opportunity Zone
 // 	YES/NO' for High Opportunity Zone
@@ -90,18 +117,111 @@ export const DEFAULT_INPUT_VALUES = [
 
 // 	County Largest Industry
 // 	County level NAICS description for largest industry
-// County
 
-
-{
-		fieldType: FIELD_TYPES.number,
-		fieldName: 'icuover_max_needed_100k',
-		fieldDisplayName: 'ICU SHORTAGE AT PEAK PER 100K',
-	},
 ]
 
-
-
-
-
+const tEMP = [
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'Census Tract ID',
+		fieldName: 'geoid_tr',
+	},
+	
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'Fannie Mae persistent poverty',
+		fieldName: 'per_pov',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'High Opportunity Area',
+		fieldName: 'high_opp',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'Area of Concentrated Poverty',
+		fieldName: 'acp',
+	},
+	
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county total population 2017',
+		fieldName: 'county_total_population_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county median income 4 person household 2017',
+		fieldName: 'county_median_income_4_person_household_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county average household size owner occupied 2017',
+		fieldName: 'county_average_household_size_owner_occupied_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county average household size renter occupied 2017',
+		fieldName: 'county_average_household_size_renter_occupied_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county median age of owner occupied units 2017',
+		fieldName: 'county_median_age_of_owner_occupied_units_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county median age of renter occupied units 2017',
+		fieldName: 'county_median_age_of_renter_occupied_units_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county gross rent as a pct of income 2017',
+		fieldName: 'county_gross_rent_as_a_pct_of_income_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county unemployed pct 2017',
+		fieldName: 'county_unemployed_pct_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county rental vacancy pct 2017',
+		fieldName: 'county_rental_vacancy_pct_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'county total rental units 2017',
+		fieldName: 'county_total_rental_units_2017',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: '% Change in Business Establishments',
+		fieldName: 'county_pct_change_in_establishments_2009_15',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'County Largest Industry',
+		fieldName: 'county_naics_description_for_largest_industry',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'Fannie Mae 100% AMI',
+		fieldName: 'county_ami_100',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'Fannie Mae 80% AMI',
+		fieldName: 'county_ami_80',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'Fannie Mae 50% AMI',
+		fieldName: 'county_ami_50',
+	},
+	{
+		fieldType: FIELD_TYPES.number,
+		fieldDisplayName: 'stusps',
+		fieldName: 'stusps',
+	},
+]
 
