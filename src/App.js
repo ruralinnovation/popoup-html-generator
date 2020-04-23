@@ -13,33 +13,6 @@ import {DarkStyleSwitch} from "./DarkStyleSwitch";
 import {HippoBar} from "./HippoBar";
 
 
-
-class Graphic extends React.Component {
-  state = {
-    data: 0,
-  };
-  
-  onStepEnter = ({ element, data, direction }) => this.setState({ data });
-  
-  render() {
-    const { data } = this.state;
-    
-    return (
-      <div>
-        <p>data: {data}</p>
-        <Scrollama onStepEnter={this.onStepEnter}>
-          <Step data={1}>
-            <p>step 1</p>
-          </Step>
-          <Step data={2}>
-            <p>step 2</p>
-          </Step>
-        </Scrollama>
-      </div>
-    );
-  }
-}
-
 function App() {
   const [pageSectionIndex, setPageSectionIndex] = useState(0)
   const onStepEnter = useCallback(

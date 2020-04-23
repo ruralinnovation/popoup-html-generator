@@ -12,61 +12,88 @@ export const BLANK_INPUT_FIELD = {
 }
 
 export const DEFAULT_INPUT_VALUES = [
-	{
-		fieldType: FIELD_TYPES.gradientOutOf100,
-		fieldName: 'prep_level',
-		fieldDisplayName: 'prep_score',
-	},
+	// HEADER
+	// County Name, State
+	// Tract GEOID
 	
-	// "Pillar" scores
-	{
-		fieldType: FIELD_TYPES.scoreOutOf100,
-		fieldName: 'bed_score_1',
-		fieldDisplayName: 'Physical Capacity score',
-	},
-	{
-		fieldType: FIELD_TYPES.scoreOutOf100,
-		fieldName: 'staff_score_1',
-		fieldDisplayName: 'Human Resources score',
-	},
-	{
-		fieldType: FIELD_TYPES.scoreOutOf100,
-		fieldName: 'dem_score_1',
-		fieldDisplayName: 'Demographic score',
-	},
-	{
-		fieldType: FIELD_TYPES.scoreOutOf100,
-		fieldName: 'se_score_1',
-		fieldDisplayName: 'Socio-Economic score',
-	},
-	{
-		fieldType: FIELD_TYPES.scoreOutOf100,
-		fieldName: 'proj_score_1',
-		fieldDisplayName: 'COVID-19 score',
-	},
+	// Wikipedia Link
+	// Foreclosed Houses on Zillow
+	// Contractor Link (if applicable)
 	
-	// Numeric
-	{
-		fieldType: FIELD_TYPES.number,
-		fieldName: 'total_staff_dt_100k',
-		fieldDisplayName: 'Staff w/in 40min per 100k',
-	},
-	{
-		fieldType: FIELD_TYPES.number,
-		fieldName: 'total_estimated_bed_40_mins_100k',
-		fieldDisplayName: 'BEDS IN 40 MINS PER 100K',
-	},
-	{
-		fieldType: FIELD_TYPES.number,
-		fieldName: 'pct_65_over_2018',
-		fieldDisplayName: 'PERCENT POP AGE > 65',
-	},
-	{
-		fieldType: FIELD_TYPES.number,
-		fieldName: 'svi_socioeconomic',
-		fieldDisplayName: 'CDC SVI',
-	},
-	{
+	// COUNTY LEVEL INDICATORS
+	
+// 	Tract Level Indicators
+//
+// 	Area of Concentrated Poverty
+// 	YES/NO' whether designated as an Area of Concentrated Poverty
+
+// 	Lower Mississippi Delta or Mid-Appalachia region?
+// 		Fannie Mae Region Name
+
+// 	Rural
+// 	YES/NO' for Rural
+
+// 	FHFA Low Income Area
+// 	YES/NO' for Low Income Area
+
+// 	FHFA Minority Area
+// 	YES/NO' for Minority Area
+
+// 	CRA Eligible
+// 	YES/NO' for CRA market (generally assessed based on state or MSA)
+
+// 	High Opportunity Zone
+// 	YES/NO' for High Opportunity Zone
+
+
+// 	County Level Indicators
+
+
+// 	FM Persistent Poverty
+// 	YES/NO' for Persistent Poverty
+
+// 	County Total Population 2017
+// 	County level total population 2017
+
+// 	Fannie Mae 100% AMI
+// 	County level ami 100
+
+// 	Fannie Mae 80% AMI
+// 	County level ami 80
+
+// 	Fannie Mae 50% AMI
+// 	County level ami 50
+
+// 	County Median Income 4 Person Household 2017
+// 	County level median income 4 person household 2017
+
+// 	County Average Household Size Owner Occupied 2017
+// 	County level average household size owner occupied 2017
+
+// 	County Average Household Size Renter Occupied 2017
+// 	County level average household size renter occupied 2017
+
+// 	County Median Age Of Owner Occupied Units 2017
+// 	County level median age of owner occupied units 2017
+
+// 	County Median Age Of Renter Occupied Units 2017
+// 	County level median age of renter occupied units 2017
+
+// 	County Unemployed Pct 2017
+// 	County level unemployed pct 2017
+
+// 	County Rental Vacancy Pct 2017
+// 	County level rental vacancy pct 2017
+
+// 	County Total Rental Units 2017
+// 	County level total rental units 2017
+
+// 	County Largest Industry
+// 	County level NAICS description for largest industry
+// County
+
+
+{
 		fieldType: FIELD_TYPES.number,
 		fieldName: 'icuover_max_needed_100k',
 		fieldDisplayName: 'ICU SHORTAGE AT PEAK PER 100K',
