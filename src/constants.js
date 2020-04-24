@@ -13,17 +13,30 @@ export const BLANK_INPUT_FIELD = {
 }
 
 export const DEFAULT_INPUT_VALUES = [
-	// HEADER
+	// HEADER *****************************************
 	// County Name, State
 	// Tract GEOID
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'Census Tract ID',
+		fieldName: 'geoid_tr',
+	},
 	
 	// Wikipedia Link
+	{
+		fieldType: FIELD_TYPES.wikipediaLink,
+	},
+	
 	// Foreclosed Houses on Zillow
+	{
+		fieldType: FIELD_TYPES.zillowLink,
+	},
+	
 	// Contractor Link (if applicable)
 	
 	// COUNTY LEVEL INDICATORS
 
-// 	Tract Level Indicators
+// 	Tract Level Indicators*****************************************
 //
 // 	Area of Concentrated Poverty
 // 	YES/NO' whether designated as an Area of Concentrated Poverty
@@ -84,7 +97,7 @@ export const DEFAULT_INPUT_VALUES = [
 	
 	
 	
-// 	County Level Indicators
+// 	County Level Indicators *****************************************
 	{
 		fieldType: FIELD_TYPES.subSectionHeader,
 		fieldDisplayName: 'County Level Indicators',
@@ -204,12 +217,7 @@ export const DEFAULT_INPUT_VALUES = [
 ]
 
 const tEMP = [
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'Census Tract ID',
-		fieldName: 'geoid_tr',
-	},
-	
+
 	
 	{
 		fieldType: FIELD_TYPES.text,
@@ -223,10 +231,6 @@ const tEMP = [
 		fieldName: 'county_pct_change_in_establishments_2009_15',
 	},
 	
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'stusps',
-		fieldName: 'stusps',
-	},
+	
 ]
 

@@ -66,9 +66,9 @@ const subSectionHeader = headerText => textComponent(headerText, true, true)
 const fieldContent = ({fieldName, fieldDisplayName, fieldType}) => {
 	switch(fieldType) {
 		case FIELD_TYPES.text:
-			return textOrNumberContent(fieldName, fieldName, true)
+			return textOrNumberContent(fieldName, fieldDisplayName, true)
 		case FIELD_TYPES.number:
-			return textOrNumberContent(fieldName, fieldName)
+			return textOrNumberContent(fieldName, fieldDisplayName)
 		case FIELD_TYPES.zillowLink:
 			return zillowLink()
 		case FIELD_TYPES.wikipediaLink:
@@ -97,12 +97,12 @@ const fieldSection = (fieldSectionsAccumulator, fieldInfo) => {
 
 
 // TODO: take in an array of fields
-const locationHeader = () => `
+const locationHeader = (regionNameField = 'county_name', stateNameField = 'stusps') => `
 	<div class="CDB-infowindow-header CDB-infowindow-headerBg CDB-infowindow-headerBg--light js-header" style="background: #191e21; padding-bottom: 16px;">
       <ul class="CDB-infowindow-list">
         <li class="CDB-infowindow-listItem">
           <h4 class="CDB-infowindow-title" style="font-size: 24px">
-            {{name}}, {{st_stusps}}
+            {{${regionNameField}}, {{${stateNameField}}}
           </h4>
         </li>
       </ul>
