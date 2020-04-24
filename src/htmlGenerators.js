@@ -1,31 +1,21 @@
 import {FIELD_TYPES} from "./constants";
 
 
-const fieldDisplayNameStyle = (isText, isSubSectionHeader = false) => {
+const fieldDisplayNameStyle = (isSubSectionHeader = false) => {
 	if (isSubSectionHeader) {
 		return `
 			font-weight: bold;
-			font-size: 2em;
-			line-height: 2em;
+			padding-top: 16px;
+			font-size: 1.5em;
+			line-height: 1em;
+			font-style: italic;
+			border-bottom: 1px solid white;
 		`
 	}
-	if (isText) return ''
-	
-	return `
-		position: absolute;
-		left: 0px;
-		bottom: 8px;
-		font-size: 12px;
-	`
+	return ''
 }
 
-const fieldValueStyle = (isText) => isText ? 'font-size: 1.5em' : `
-	position: absolute;
-	right: 8px;
-	bottom: 8px;
-	line-height: 1em;
-	font-size: '2em';
-`
+const fieldValueStyle = () => 'font-size: 1.5em'
 
 const fieldWrapperStyle = (isText) => isText ? '' : `
 	position: relative;
@@ -38,21 +28,21 @@ const listItemStyle = () => ''
 
 
 const textComponent = (text, isText, isSubSectionHeader = false) => `
-	<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isText, isSubSectionHeader)}">${text}</div>
+	<div class="CDB-infowindow-subtitle" style="${fieldDisplayNameStyle(isSubSectionHeader)}">${text}</div>
 `
 
 const textOrNumberContent = (fieldName, fieldDisplayName, isText = false) => `
 	<div style="${fieldWrapperStyle(isText)}">
 		${textComponent(fieldDisplayName, isText)}
-		<div class="CDB-infowindow-title" style="${fieldValueStyle(isText)}">{{${fieldName}}}</div>
+		<div class="CDB-infowindow-title" style="${fieldValueStyle()}">{{${fieldName}}}</div>
 	</div>
 `
 
 // TODO: don't hard code county/state names
 const link = (url, text) => `
 	<div style="${fieldWrapperStyle(true)}">
-		<div class="CDB-infowindow-title" style=${fieldDisplayNameStyle(true)}>
-			<a href="${url}" target="_blank">${text}</a>
+		<div class="CDB-infowindow-title" style=${fieldDisplayNameStyle()}>
+			<a href="${url}" target="_blank">🔗${text}</a>
 		</div>
 	</div>
 `
@@ -81,6 +71,8 @@ const fieldContent = ({fieldName, fieldDisplayName, fieldType}) => {
 	}
 }
 
+const fieldContentWrapperStyle = (fieldType) => [FIELD_TYPES.zillowLink, FIELD_TYPES.wikipediaLink].includes(fieldType) ? '' : 'min-height: 42px;'
+
 const fieldSection = (fieldSectionsAccumulator, fieldInfo) => {
 	if (!fieldInfo.fieldType) return fieldSectionsAccumulator
 	
@@ -88,7 +80,7 @@ const fieldSection = (fieldSectionsAccumulator, fieldInfo) => {
 	
 	return fieldSectionsAccumulator + `
     <li class="CDB-infowindow-listItem" style="${listItemStyle()}">
-    	<div style="min-height: 42px;">
+    	<div style="${fieldContentWrapperStyle(fieldInfo.fieldType)}">
 				${content}
       </div>
     </li>
@@ -96,13 +88,13 @@ const fieldSection = (fieldSectionsAccumulator, fieldInfo) => {
 }
 
 
-// TODO: take in an array of fields
+// TODO: let user specify fields
 const locationHeader = (regionNameField = 'county_name', stateNameField = 'stusps') => `
 	<div class="CDB-infowindow-header CDB-infowindow-headerBg CDB-infowindow-headerBg--light js-header" style="background: #191e21; padding-bottom: 16px;">
       <ul class="CDB-infowindow-list">
         <li class="CDB-infowindow-listItem">
-          <h4 class="CDB-infowindow-title" style="font-size: 24px">
-            {{${regionNameField}}, {{${stateNameField}}}
+          <h4 class="CDB-infowindow-title" style="font-size: 24px; line-height: 24px;">
+            {{${regionNameField}}}, {{${stateNameField}}}
           </h4>
         </li>
       </ul>
