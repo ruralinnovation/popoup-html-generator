@@ -101,47 +101,106 @@ export const DEFAULT_INPUT_VALUES = [
 // 	County Total Population 2017
 // 	County level total population 2017
 	{
-		fieldType: FIELD_TYPES.number,
+		fieldType: FIELD_TYPES.text,
 		fieldDisplayName: 'county total population 2017',
 		fieldName: 'county_total_population_2017',
 	},
 
 // 	Fannie Mae 100% AMI
 // 	County level ami 100
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'Fannie Mae 100% AMI',
+		fieldName: 'county_ami_100',
+	},
 
 // 	Fannie Mae 80% AMI
 // 	County level ami 80
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'Fannie Mae 80% AMI',
+		fieldName: 'county_ami_80',
+	},
+	
 // 	Fannie Mae 50% AMI
 // 	County level ami 50
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'Fannie Mae 50% AMI',
+		fieldName: 'county_ami_50',
+	},
+	
 // 	County Median Income 4 Person Household 2017
 // 	County level median income 4 person household 2017
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county median income 4 person household 2017',
+		fieldName: 'county_median_income_4_person_household_2017',
+	},
+	
 
 // 	County Average Household Size Owner Occupied 2017
 // 	County level average household size owner occupied 2017
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county average household size owner occupied 2017',
+		fieldName: 'county_average_household_size_owner_occupied_2017',
+	},
+
 
 // 	County Average Household Size Renter Occupied 2017
 // 	County level average household size renter occupied 2017
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county average household size renter occupied 2017',
+		fieldName: 'county_average_household_size_renter_occupied_2017',
+	},
+	
 // 	County Median Age Of Owner Occupied Units 2017
 // 	County level median age of owner occupied units 2017
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county median age of owner occupied units 2017',
+		fieldName: 'county_median_age_of_owner_occupied_units_2017',
+	},
 
 // 	County Median Age Of Renter Occupied Units 2017
 // 	County level median age of renter occupied units 2017
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county median age of renter occupied units 2017',
+		fieldName: 'county_median_age_of_renter_occupied_units_2017',
+	},
+	
 // 	County Unemployed Pct 2017
 // 	County level unemployed pct 2017
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county unemployed pct 2017',
+		fieldName: 'county_unemployed_pct_2017',
+	},
 // 	County Rental Vacancy Pct 2017
 // 	County level rental vacancy pct 2017
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county rental vacancy pct 2017',
+		fieldName: 'county_rental_vacancy_pct_2017',
+	},
 // 	County Total Rental Units 2017
 // 	County level total rental units 2017
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'county total rental units 2017',
+		fieldName: 'county_total_rental_units_2017',
+	},
 // 	County Largest Industry
 // 	County level NAICS description for largest industry
-
+	{
+		fieldType: FIELD_TYPES.text,
+		fieldDisplayName: 'County Largest Industry',
+		fieldName: 'county_naics_description_for_largest_industry',
+	},
+	
 ]
 
 const tEMP = [
@@ -152,77 +211,18 @@ const tEMP = [
 	},
 	
 	
-	
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county median income 4 person household 2017',
-		fieldName: 'county_median_income_4_person_household_2017',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county average household size owner occupied 2017',
-		fieldName: 'county_average_household_size_owner_occupied_2017',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county average household size renter occupied 2017',
-		fieldName: 'county_average_household_size_renter_occupied_2017',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county median age of owner occupied units 2017',
-		fieldName: 'county_median_age_of_owner_occupied_units_2017',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county median age of renter occupied units 2017',
-		fieldName: 'county_median_age_of_renter_occupied_units_2017',
-	},
 	{
 		fieldType: FIELD_TYPES.text,
 		fieldDisplayName: 'county gross rent as a pct of income 2017',
 		fieldName: 'county_gross_rent_as_a_pct_of_income_2017',
 	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county unemployed pct 2017',
-		fieldName: 'county_unemployed_pct_2017',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county rental vacancy pct 2017',
-		fieldName: 'county_rental_vacancy_pct_2017',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county total rental units 2017',
-		fieldName: 'county_total_rental_units_2017',
-	},
+	
 	{
 		fieldType: FIELD_TYPES.text,
 		fieldDisplayName: '% Change in Business Establishments',
 		fieldName: 'county_pct_change_in_establishments_2009_15',
 	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'County Largest Industry',
-		fieldName: 'county_naics_description_for_largest_industry',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'Fannie Mae 100% AMI',
-		fieldName: 'county_ami_100',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'Fannie Mae 80% AMI',
-		fieldName: 'county_ami_80',
-	},
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'Fannie Mae 50% AMI',
-		fieldName: 'county_ami_50',
-	},
+	
 	{
 		fieldType: FIELD_TYPES.text,
 		fieldDisplayName: 'stusps',
