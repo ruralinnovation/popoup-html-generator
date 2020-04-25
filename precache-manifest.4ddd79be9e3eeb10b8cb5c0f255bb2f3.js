@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "771a3bb7ddd63d6da6c323fd254f5210",
+    "revision": "ce3ab7a98716adb4aa7b65146001e777",
     "url": "/popoup-html-generator/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/popoup-html-generator/static/css/2.ad8fe80d.chunk.css"
   },
   {
-    "revision": "3e1e315bee9b160c54a9",
+    "revision": "a8e69c5d82e5bec2f9a9",
     "url": "/popoup-html-generator/static/css/main.a9063966.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/popoup-html-generator/static/js/2.f411db22.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3e1e315bee9b160c54a9",
-    "url": "/popoup-html-generator/static/js/main.4652c3e2.chunk.js"
+    "revision": "a8e69c5d82e5bec2f9a9",
+    "url": "/popoup-html-generator/static/js/main.7d13afe3.chunk.js"
   },
   {
     "revision": "7949e2b4f0c937acf00f",
