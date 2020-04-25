@@ -104,7 +104,7 @@ const locationHeader = (regionNameField = 'county_name', stateNameField = 'stusp
 const triangleMarker = (isDarkStyle) => `
 	<div style="
 			position: relative;
-			bottom: 24px;
+			bottom: 25px;
 			left: 24px;
 	">
     <div style="
@@ -134,9 +134,10 @@ export const generatePopupHTML = (fields, isDarkStyle) => {
             </ul>
           </div>
         </div>
-        ${triangleMarker(isDarkStyle)}
+        
       </div>
     </div>
+    ${triangleMarker(isDarkStyle)}
   `
 }
 
