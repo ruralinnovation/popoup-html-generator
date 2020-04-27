@@ -1,21 +1,29 @@
 import {FIELD_TYPES} from "./constants";
 
+const FONT_SIZE = {
+	big: '18px',
+	small: '12px',
+}
 
 const fieldDisplayNameStyle = (isSubSectionHeader = false) => {
 	if (isSubSectionHeader) {
 		return `
 			font-weight: bold;
 			padding-top: 16px;
-			font-size: 1.5em;
+			font-size: ${FONT_SIZE.small};
 			line-height: 1em;
-			font-style: italic;
 			border-bottom: 1px solid white;
 		`
 	}
-	return ''
+	return `
+			font-size: ${FONT_SIZE.small};
+			text-transform: capitalize;
+		`
 }
 
-const fieldValueStyle = () => 'font-size: 1.5em'
+const fieldValueStyle = () => `
+	font-size: ${FONT_SIZE.big};
+`
 
 const fieldWrapperStyle = (isText) => isText ? '' : `
 	position: relative;
@@ -93,7 +101,7 @@ const locationHeader = (regionNameField = 'county_name', stateNameField = 'stusp
 	<div class="CDB-infowindow-header CDB-infowindow-headerBg CDB-infowindow-headerBg--light js-header" style="background: #191e21; padding-bottom: 16px;">
       <ul class="CDB-infowindow-list">
         <li class="CDB-infowindow-listItem">
-          <h4 class="CDB-infowindow-title" style="font-size: 24px; line-height: 24px;">
+          <h4 class="CDB-infowindow-title" style="font-size: ${FONT_SIZE.big}; line-height: ${FONT_SIZE.big};">
             {{${regionNameField}}}, {{${stateNameField}}}
           </h4>
         </li>
