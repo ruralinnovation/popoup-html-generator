@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/popoup-html-generator/static/css/main.a9063966.chunk.css",
-    "main.js": "/popoup-html-generator/static/js/main.7d13afe3.chunk.js",
-    "main.js.map": "/popoup-html-generator/static/js/main.7d13afe3.chunk.js.map",
-    "runtime-main.js": "/popoup-html-generator/static/js/runtime-main.f98db673.js",
-    "runtime-main.js.map": "/popoup-html-generator/static/js/runtime-main.f98db673.js.map",
-    "static/css/2.ad8fe80d.chunk.css": "/popoup-html-generator/static/css/2.ad8fe80d.chunk.css",
-    "static/js/2.f411db22.chunk.js": "/popoup-html-generator/static/js/2.f411db22.chunk.js",
-    "static/js/2.f411db22.chunk.js.map": "/popoup-html-generator/static/js/2.f411db22.chunk.js.map",
-    "index.html": "/popoup-html-generator/index.html",
-    "precache-manifest.4ddd79be9e3eeb10b8cb5c0f255bb2f3.js": "/popoup-html-generator/precache-manifest.4ddd79be9e3eeb10b8cb5c0f255bb2f3.js",
-    "service-worker.js": "/popoup-html-generator/service-worker.js",
-    "static/css/2.ad8fe80d.chunk.css.map": "/popoup-html-generator/static/css/2.ad8fe80d.chunk.css.map",
-    "static/css/main.a9063966.chunk.css.map": "/popoup-html-generator/static/css/main.a9063966.chunk.css.map",
-    "static/js/2.f411db22.chunk.js.LICENSE.txt": "/popoup-html-generator/static/js/2.f411db22.chunk.js.LICENSE.txt"
+    "main.css": "/carto-popup-generator/static/css/main.a9063966.chunk.css",
+    "main.js": "/carto-popup-generator/static/js/main.b9475070.chunk.js",
+    "main.js.map": "/carto-popup-generator/static/js/main.b9475070.chunk.js.map",
+    "runtime-main.js": "/carto-popup-generator/static/js/runtime-main.3b133173.js",
+    "runtime-main.js.map": "/carto-popup-generator/static/js/runtime-main.3b133173.js.map",
+    "static/css/2.ad8fe80d.chunk.css": "/carto-popup-generator/static/css/2.ad8fe80d.chunk.css",
+    "static/js/2.f411db22.chunk.js": "/carto-popup-generator/static/js/2.f411db22.chunk.js",
+    "static/js/2.f411db22.chunk.js.map": "/carto-popup-generator/static/js/2.f411db22.chunk.js.map",
+    "index.html": "/carto-popup-generator/index.html",
+    "precache-manifest.449e16614c86259691290d63b317c245.js": "/carto-popup-generator/precache-manifest.449e16614c86259691290d63b317c245.js",
+    "service-worker.js": "/carto-popup-generator/service-worker.js",
+    "static/css/2.ad8fe80d.chunk.css.map": "/carto-popup-generator/static/css/2.ad8fe80d.chunk.css.map",
+    "static/css/main.a9063966.chunk.css.map": "/carto-popup-generator/static/css/main.a9063966.chunk.css.map",
+    "static/js/2.f411db22.chunk.js.LICENSE.txt": "/carto-popup-generator/static/js/2.f411db22.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f98db673.js",
+    "static/js/runtime-main.3b133173.js",
     "static/css/2.ad8fe80d.chunk.css",
     "static/js/2.f411db22.chunk.js",
     "static/css/main.a9063966.chunk.css",
-    "static/js/main.7d13afe3.chunk.js"
+    "static/js/main.b9475070.chunk.js"
   ]
 }
