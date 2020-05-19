@@ -220,21 +220,3 @@ export const DEFAULT_INPUT_VALUES = [
 	
 ]
 
-const tEMP = [
-
-	
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: 'county gross rent as a pct of income 2017',
-		fieldName: 'county_gross_rent_as_a_pct_of_income_2017',
-	},
-	
-	{
-		fieldType: FIELD_TYPES.text,
-		fieldDisplayName: '% Change in Business Establishments',
-		fieldName: 'county_pct_change_in_establishments_2009_15',
-	},
-	
-	
-]
-

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useCurrentWidth} from "./useCurrentWidth";
+import {Emoji} from "./Emoji";
 
 const BAR_SIDE_MARGIN = 36
 
@@ -27,7 +28,7 @@ export const HippoBar = ({pageSectionIndex, pageSectionCount}) => {
 					top: hippoTopPosition,
 				}}
 			>
-				🦛
+				<Emoji symbol="🦛" label="hippo"/>
 			</span>
 			{isLastSection && <div style={{marginRight: 8}}>
 				🎉

@@ -1,16 +1,16 @@
 import React, {useCallback, useState} from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import {copyToClipboard, generatePopupHTML} from "./htmlGenerators";
+import {copyToClipboard, generatePopupHTML} from "./popup-generation/htmlGenerators";
 import {Button} from "antd";
 import {HeartTwoTone, PlusCircleOutlined, SmileOutlined} from '@ant-design/icons';
 import { Scrollama, Step } from 'react-scrollama';
 
-import {GlowButton} from "./GlowButton";
-import {BLANK_INPUT_FIELD, DEFAULT_INPUT_VALUES} from "./constants";
-import {FieldInputRow} from "./FieldInputRow";
-import {DarkStyleSwitch} from "./DarkStyleSwitch";
-import {HippoBar} from "./HippoBar";
+import {GlowButton} from "./ui/GlowButton";
+import {BLANK_INPUT_FIELD, DEFAULT_INPUT_VALUES} from "./popup-generation/constants";
+import {FieldInputRow} from "./popup-generation/FieldInputRow";
+import {DarkStyleSwitch} from "./ui/DarkStyleSwitch";
+import {HippoBar} from "./ui/HippoBar";
 
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
   
   const addNewInputField = useCallback(() => {
     onChangeInput(BLANK_INPUT_FIELD, fieldInputValues.length)
-  }, [fieldInputValues])
+  }, [fieldInputValues, onChangeInput])
   
   const onDeleteField = useCallback((index) => {
     setFieldInputValues(fieldInputValues.filter((_, i) => i !== index))
