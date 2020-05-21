@@ -29,10 +29,6 @@ const link = (url, text) => `
 	</div>
 `
 
-const zillowLink = () => link('https://www.zillow.com/{{county_name}}-{{stusps}}/foreclosures/', 'Foreclosures on Zillow')
-
-const wikipediaLink = () => link('https://en.wikipedia.org/wiki/{{county_name}},_{{stusps}}', 'Wikipedia')
-
 const subSectionHeader = headerText => textComponent(headerText, true, true)
 
 const fieldContent = ({fieldName, fieldDisplayName, fieldType}) => {
@@ -41,10 +37,8 @@ const fieldContent = ({fieldName, fieldDisplayName, fieldType}) => {
 			return textOrNumberContent(fieldName, fieldDisplayName, true)
 		case FIELD_TYPES.number:
 			return textOrNumberContent(fieldName, fieldDisplayName)
-		case FIELD_TYPES.zillowLink:
-			return zillowLink()
-		case FIELD_TYPES.wikipediaLink:
-			return wikipediaLink()
+		case FIELD_TYPES.link:
+			return link(fieldName, fieldDisplayName)
 		case FIELD_TYPES.subSectionHeader:
 			return subSectionHeader(fieldDisplayName)
 		default:

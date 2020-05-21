@@ -1,8 +1,7 @@
 export const FIELD_TYPES = {
 	number: 'Number',
 	text: 'Text',
-	zillowLink: 'Zillow Foreclosures Link',
-	wikipediaLink: 'Wikipedia Link',
+	link: 'Link',
 	subSectionHeader: 'Sub Section Header'
 }
 
@@ -24,12 +23,16 @@ export const DEFAULT_INPUT_VALUES = [
 	
 	// Wikipedia Link
 	{
-		fieldType: FIELD_TYPES.wikipediaLink,
+		fieldType: FIELD_TYPES.link,
+		fieldDisplayName: 'Wikipedia',
+		fieldName: 'https://en.wikipedia.org/wiki/{{county_name}},_{{stusps}}'
 	},
 	
 	// Foreclosed Houses on Zillow
 	{
-		fieldType: FIELD_TYPES.zillowLink,
+		fieldType: FIELD_TYPES.link,
+		fieldDisplayName: 'Zillow Forclosures',
+		fieldName: 'https://www.zillow.com/{{county_name}}-{{stusps}}/foreclosures/'
 	},
 	
 	// Contractor Link (if applicable)

@@ -5,19 +5,14 @@ import {FIELD_TYPES} from "./constants";
 const calculateUIInfo = (fieldType) => {
 	switch(fieldType) {
 		case FIELD_TYPES.text:
-			return {
-				showFieldName: true,
-				fieldDisplayNameLabel: 'Field Display Name',
-			}
 		case FIELD_TYPES.number:
 			return {
-				showFieldName: true,
 				fieldDisplayNameLabel: 'Field Display Name',
 			}
-		case FIELD_TYPES.zillowLink:
-			return {}
-		case FIELD_TYPES.wikipediaLink:
-			return {}
+		case FIELD_TYPES.link:
+			return {
+				fieldDisplayNameLabel: 'Link Text',
+			}
 		case FIELD_TYPES.subSectionHeader:
 			return {
 				fieldDisplayNameLabel: 'Header Text',
@@ -29,20 +24,21 @@ const calculateUIInfo = (fieldType) => {
 }
 
 export const FieldInputRow = ({index, fieldInputValue, onChange, onDeleteField}) => {
-	const {showFieldName, fieldDisplayNameLabel} = calculateUIInfo(fieldInputValue.fieldType)
+	const {fieldDisplayNameLabel} = calculateUIInfo(fieldInputValue.fieldType)
+	const isNotSubSectionHeader = fieldInputValue.fieldType !== FIELD_TYPES.subSectionHeader
+	const isLink = fieldInputValue.fieldType === FIELD_TYPES.link
 	return (
 		<div className="field-input-container" style={{display: 'flex'}}>
-			{fieldDisplayNameLabel && <Input
+			<Input
 				style={{flex: 2}}
 				addonBefore={fieldDisplayNameLabel}
 				value={fieldInputValue.fieldDisplayName}
 				onChange={({target}) => onChange({...fieldInputValue, fieldDisplayName: target.value})}
-			/>}
+			/>
 			
-			{showFieldName && <Input
+			{isNotSubSectionHeader && <Input
 				style={{flex: 2}}
-				addonBefore="CARTO Field"
-				placeholer={"eg state_pop_2018"}
+				addonBefore={isLink ? 'URL' : 'CARTO Field'}
 				value={fieldInputValue.fieldName}
 				onChange={({target}) => onChange({...fieldInputValue, fieldName: target.value.trim()})}
 			/>}
@@ -53,11 +49,8 @@ export const FieldInputRow = ({index, fieldInputValue, onChange, onDeleteField})
 				className="field-type"
 				onChange={(fieldType) => onChange({...fieldInputValue, fieldType})}
 			>
-				<Select.Option value={FIELD_TYPES.number}>{FIELD_TYPES.number}</Select.Option>
-				<Select.Option value={FIELD_TYPES.text}>{FIELD_TYPES.text}</Select.Option>
-				<Select.Option value={FIELD_TYPES.zillowLink}>{FIELD_TYPES.zillowLink}</Select.Option>
-				<Select.Option value={FIELD_TYPES.wikipediaLink}>{FIELD_TYPES.wikipediaLink}</Select.Option>
-				<Select.Option value={FIELD_TYPES.subSectionHeader}>{FIELD_TYPES.subSectionHeader}</Select.Option>
+				{Object.values(FIELD_TYPES).map(fieldType => <Select.Option key={fieldType} value={fieldType}>{fieldType}</Select.Option>)}
+				
 			</Select>
 			<Button className="delete-button" onClick={() => onDeleteField(index)} danger>X</Button>
 		</div>
