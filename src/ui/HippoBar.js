@@ -31,7 +31,7 @@ export const HippoBar = ({pageSectionIndex, pageSectionCount}) => {
 				<Emoji symbol="🦛" label="hippo"/>
 			</span>
 			{isLastSection && <div style={{marginRight: 8}}>
-				🎉
+				<Emoji symbol="🎉" label="congrats!"/>
 			</div>}
 		</div>
 	)

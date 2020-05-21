@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import {copyToClipboard, generatePopupHTML} from "./popup-generation/htmlGenerators";
+import {generatePopupHTML} from "./popup-generation/htmlGenerators";
 import {Button} from "antd";
 import {HeartTwoTone, PlusCircleOutlined, SmileOutlined} from '@ant-design/icons';
 import { Scrollama, Step } from 'react-scrollama';
@@ -11,6 +11,7 @@ import {BLANK_INPUT_FIELD, DEFAULT_INPUT_VALUES} from "./popup-generation/consta
 import {FieldInputRow} from "./popup-generation/FieldInputRow";
 import {DarkStyleSwitch} from "./ui/DarkStyleSwitch";
 import {HippoBar} from "./ui/HippoBar";
+import {copyToClipboard} from "./ui/utils";
 
 
 function App() {

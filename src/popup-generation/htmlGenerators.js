@@ -1,38 +1,12 @@
 import {FIELD_TYPES} from "./constants";
-
-const FONT_SIZE = {
-	big: '18px',
-	small: '12px',
-}
-
-const fieldDisplayNameStyle = (isSubSectionHeader = false) => {
-	if (isSubSectionHeader) {
-		return `
-			font-weight: bold;
-			padding-top: 16px;
-			font-size: ${FONT_SIZE.small};
-			line-height: 1em;
-			border-bottom: 1px solid white;
-		`
-	}
-	return `
-			font-size: ${FONT_SIZE.small};
-			text-transform: capitalize;
-		`
-}
-
-const fieldValueStyle = () => `
-	font-size: ${FONT_SIZE.big};
-`
-
-const fieldWrapperStyle = (isText) => isText ? '' : `
-	position: relative;
-	padding-bottom: 4px;
-	padding-top: 4px;
-`
-
-
-const listItemStyle = () => ''
+import {
+	fieldContentWrapperStyle,
+	fieldDisplayNameStyle,
+	fieldValueStyle,
+	fieldWrapperStyle,
+	FONT_SIZE,
+	listItemStyle
+} from "./cssGenerators";
 
 
 const textComponent = (text, isText, isSubSectionHeader = false) => `
@@ -78,8 +52,6 @@ const fieldContent = ({fieldName, fieldDisplayName, fieldType}) => {
 			return fieldDisplayName
 	}
 }
-
-const fieldContentWrapperStyle = (fieldType) => [FIELD_TYPES.zillowLink, FIELD_TYPES.wikipediaLink].includes(fieldType) ? '' : 'min-height: 42px;'
 
 const fieldSection = (fieldSectionsAccumulator, fieldInfo) => {
 	if (!fieldInfo.fieldType) return fieldSectionsAccumulator
@@ -148,17 +120,3 @@ export const generatePopupHTML = (fields, isDarkStyle) => {
     ${triangleMarker(isDarkStyle)}
   `
 }
-
-
-export const copyToClipboard = str => {
-	const el = document.createElement('textarea');
-	el.value = str;
-	el.setAttribute('readonly', '');
-	el.style.position = 'absolute';
-	el.style.left = '-9999px';
-	document.body.appendChild(el);
-	el.select();
-	document.execCommand('copy');
-	document.body.removeChild(el);
-};
-
